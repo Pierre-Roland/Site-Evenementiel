@@ -1,18 +1,25 @@
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f9;
+    margin: 0;
+}
+
+/* ✅ On centre uniquement le main */
+main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
 }
 
+/* ===== Login form ===== */
 .login-container {
     background: #fff;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     width: 300px;
+    margin-top: 80px; /* pour laisser de la place au header fixe */
 }
 
 h2 {
@@ -60,6 +67,7 @@ p#result {
   text-decoration: none;
   font-weight: bold;
 }
+
 .btn:hover {
   background: #0056b3;
 }

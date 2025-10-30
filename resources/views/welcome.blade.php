@@ -21,10 +21,10 @@
         @endif
     </head>
     <body>
+        @include('header')
         <main>
             <div id="divHelloWorld">
                 <h1>Hello World!</h1>
-                <a href="{{ route('login') }}" class="btn">Sign in/Sign up</a>
             </div>
         </main>
     </body>
