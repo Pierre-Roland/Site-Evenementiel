@@ -7,6 +7,11 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
+    public function displayAllEvents()
+    {
+        return Event::all();
+    }
+
     // Lire tous les événements
     public function index()
     {

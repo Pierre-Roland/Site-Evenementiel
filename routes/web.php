@@ -21,6 +21,7 @@ Route::post('/signup', [UserController::class, 'signup']);
 Route::post('/login', [UserController::class, 'login']);
 
 // Route events
+Route::get('/events/displayAllEvents', [EventController::class, 'displayAllEvents']);
 Route::resource('events', EventController::class);
 
 Route::get('/signup', function() {

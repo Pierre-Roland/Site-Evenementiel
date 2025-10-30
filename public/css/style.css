@@ -3,31 +3,102 @@ body {
     font-family: Arial, sans-serif;
 }
 
-h1 {
-    font-size: 2.5rem;
-    text-align: center;
+h2 {
+    font-size: 2rem;
     font-weight: bold;
+    margin-left: -42%;
+    margin-bottom: 2%;
 }
 
-#divHelloWorld {
+#h2-events-recent {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: -45%;
+  margin-bottom: 2%;
+  margin-top: 10%;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100vh;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 2%;
-  background: #007BFF;
-  color: white;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
 .btn:hover {
   background: #0056b3;
+}
+
+/* Conteneur pour centrer et donner du relief */
+.table-container {
+    width: 85%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    font-size: 1.1rem;
+}
+
+/* Le tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* En-tête */
+thead {
+    background: linear-gradient(90deg, #040251, #0094ff);
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+th, td {
+    padding: 14px 16px;
+    text-align: left;
+}
+
+/* Lignes */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #e8f4ff;
+    transition: background-color 0.3s ease;
+}
+
+/* Bordures subtiles */
+td {
+    border-top: 1px solid #eee;
+}
+
+/* Première colonne légèrement plus grasse */
+td:first-child {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Effet de survol sur l’en-tête */
+th:hover {
+    background: linear-gradient(90deg, #005fa3, #008ae6);
+}
+
+/* Responsive : scroll horizontal sur mobile */
+@media (max-width: 600px) {
+    .table-container {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    table {
+        font-size: 13px;
+    }
+    th, td {
+        padding: 10px;
+    }
 }

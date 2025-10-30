@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -22,10 +23,41 @@
     </head>
     <body>
         @include('header')
-        <main>
-            <div id="divHelloWorld">
-                <h1>Hello World!</h1>
+        <main class="container">
+            <h2>Liste des événements les plus populaire</h2>
+            <div class="table-container">
+                <table id="eventsTable">
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Tarif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="4">Chargement des événements...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="h2-events-recent">Liste des événements les plus récent</h2>
+            <div class="table-container">
+                <table id="eventsTableRecent">
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Tarif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="4">Chargement des événements...</td></tr>
+                    </tbody>
+                </table>
             </div>
         </main>
+        <script src="{{ asset('js/home.js') }}"></script>
     </body>
 </html>
