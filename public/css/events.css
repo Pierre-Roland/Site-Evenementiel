@@ -1,8 +1,10 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
+    background: linear-gradient(-45deg, #dadfe1, #a9c0c6, #ced7d7, #e4e7e9);
+    background-size: 400% 400%; /* pour l'animation */
+    animation: gradientBG 15s ease infinite;
 }
 
 .container {
@@ -118,4 +120,10 @@ h2 {
 
 form {
     display: inline;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

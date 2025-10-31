@@ -4,9 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
+    public function getNextEvents()
+    {
+        $events = Event::where('date', '>=', Carbon::today()) 
+        ->orderBy('date', 'asc') 
+        ->take(5) 
+        ->get();
+        return $events;
+    }
+
+    public function getMostPopular()
+    {
+        $events = Event::where('rate', Event::max('rate'))
+        ->orderBy('date', 'asc') 
+        ->take(5) 
+        ->get();
+        return $events;
+    }
+
     public function displayAllEvents()
     {
         return Event::all();

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Services\UserService;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -29,6 +30,9 @@ class UserController extends Controller
             return response()->json(['success' => false, 'message' => 'Identifiants incorrects']);
         }
 
+        Auth::login($user);
+        $request->session()->regenerate();
+
         return response()->json(['success' => true, 'user' => $user]);
     }
 
@@ -42,6 +46,9 @@ class UserController extends Controller
         ]);
 
         $user = $this->userService->register($validated);
+
+        Auth::login($user);
+        $request->session()->regenerate();
 
         return response()->json(['success' => true, 'user' => $user]);
     }

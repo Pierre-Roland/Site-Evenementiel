@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\CommentaireController;
 
 // Route principale : page d'accueil
 Route::get('/home', [MainController::class, 'home'])->name('home');
@@ -21,8 +22,16 @@ Route::post('/signup', [UserController::class, 'signup']);
 Route::post('/login', [UserController::class, 'login']);
 
 // Route events
-Route::get('/events/displayAllEvents', [EventController::class, 'displayAllEvents']);
+Route::get('/events/getMostPopular', [EventController::class, 'getMostPopular']);
+Route::get('/events/getNextEvents', [EventController::class, 'getNextEvents']);
 Route::resource('events', EventController::class);
+
+// Route commentaire
+Route::middleware(['auth'])->group(function() {
+    Route::post('/commentaires', [CommentaireController::class, 'store']);
+    Route::get('/commentaires/{idEvent}', [CommentaireController::class, 'show']);
+});
+
 
 Route::get('/signup', function() {
     return view('signup');

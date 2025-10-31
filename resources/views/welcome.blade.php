@@ -24,7 +24,14 @@
     <body>
         @include('header')
         <main class="container">
-            <h2>Liste des événements les plus populaire</h2>
+            <section class="intro-section">
+                <h1>Bienvenue sur Mon Site d'Événements</h1>
+                <p>Découvrez les derniers événements, actualités et moments forts à venir près de chez vous.<br>
+                Restez informé et ne manquez rien de ce qui compte.</p>
+                <a href="#h2-events-recent">Voir les événements à venir</a>
+            </section>
+
+            <h2>Liste des événements les mieux noté</h2>
             <div class="table-container">
                 <table id="eventsTable">
                     <thead>
@@ -32,7 +39,7 @@
                             <th>Titre</th>
                             <th>Description</th>
                             <th>Date</th>
-                            <th>Tarif</th>
+                            <th>Note</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +48,7 @@
                 </table>
             </div>
 
-            <h2 id="h2-events-recent">Liste des événements les plus récent</h2>
+            <h2 id="h2-events-recent">Liste des prochains événements</h2>
             <div class="table-container">
                 <table id="eventsTableRecent">
                     <thead>
@@ -49,7 +56,7 @@
                             <th>Titre</th>
                             <th>Description</th>
                             <th>Date</th>
-                            <th>Tarif</th>
+                            <th>Note</th>
                         </tr>
                     </thead>
                     <tbody>

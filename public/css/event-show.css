@@ -1,6 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(-45deg, #dadfe1, #a9c0c6, #ced7d7, #e4e7e9);
+    background-size: 400% 400%; /* pour l'animation */
+    animation: gradientBG 15s ease infinite;
     margin: 0;
     padding: 0;
 }
@@ -16,6 +18,80 @@ body {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.event-comment {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+.event-comment h2.comment-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.comment-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.comment-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+.comment-result {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.comment-list .comment-card {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.comment-card .username {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-card .date {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.comment-card .comment-text {
+    font-size: 1rem;
+    color: #333;
 }
 
 .event-title {
@@ -51,4 +127,10 @@ body {
 
 .btn-back:hover {
     background-color: #0056b3;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

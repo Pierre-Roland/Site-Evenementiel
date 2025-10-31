@@ -1,104 +1,165 @@
+/* === Global Styles === */
 body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
+    color: #1b1b18;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #dadfe1, #a9c0c6, #ced7d7, #e4e7e9);
+    background-size: 400% 400%; /* pour l'animation */
+    animation: gradientBG 15s ease infinite;
 }
 
-h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-left: -42%;
-    margin-bottom: 2%;
+a {
+    color: #0094ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-#h2-events-recent {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-left: -45%;
-  margin-bottom: 2%;
-  margin-top: 10%;
+a:hover {
+    color: #0094ff;
 }
 
+/* === Container & Main === */
 .container {
-    max-width: 1400px;
-    margin: 3rem auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-.btn:hover {
-  background: #0056b3;
+/* === Intro Section === */
+.intro-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #685ea0, #0992a7);
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
+    color: white;
 }
 
-/* Conteneur pour centrer et donner du relief */
-.table-container {
-    width: 85%;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    font-family: "Segoe UI", Roboto, sans-serif;
+.intro-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro-section p {
     font-size: 1.1rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Le tableau */
+.intro-section a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #0094ff;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(245, 48, 3, 0.3);
+}
+
+.intro-section a:hover {
+    background-color: #0094ff;
+    box-shadow: 0 5px 15px #0094ff;
+}
+
+/* === Headings === */
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    color: #1b1b18;
+}
+
+/* === Table Styles === */
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 3rem;
+}
+
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.95rem;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* En-tête */
 thead {
-    background: linear-gradient(90deg, #040251, #0094ff);
-    color: white;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #07036f, #0094ff);
+    color: #fff;
 }
 
-th, td {
-    padding: 14px 16px;
+thead th {
+    padding: 1rem;
     text-align: left;
 }
 
-/* Lignes */
+tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e3e3e0;
+    color: #1b1b18;
+}
+
 tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f2f7ff;
 }
 
 tbody tr:hover {
-    background-color: #e8f4ff;
-    transition: background-color 0.3s ease;
+    background-color: #f2f7ff;
+    transform: scale(1.01);
+    transition: all 0.2s ease;
 }
 
-/* Bordures subtiles */
-td {
-    border-top: 1px solid #eee;
+td[colspan] {
+    text-align: center;
+    color: #706f6c;
+    font-style: italic;
 }
 
-/* Première colonne légèrement plus grasse */
-td:first-child {
-    font-weight: 600;
-    color: #333;
-}
-
-/* Effet de survol sur l’en-tête */
-th:hover {
-    background: linear-gradient(90deg, #005fa3, #008ae6);
-}
-
-/* Responsive : scroll horizontal sur mobile */
-@media (max-width: 600px) {
-    .table-container {
+/* === Responsive Tables === */
+@media (max-width: 768px) {
+    table thead {
+        display: none;
+    }
+    table, tbody, tr, td {
+        display: block;
         width: 100%;
-        box-shadow: none;
-        border-radius: 0;
     }
-    table {
-        font-size: 13px;
+    tr {
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+        background-color: #fff;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        padding: 0.5rem 0;
     }
-    th, td {
-        padding: 10px;
+    td {
+        padding: 0.5rem 1rem;
+        text-align: right;
+        position: relative;
     }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: 600;
+        color: #f53003;
+        text-transform: uppercase;
+    }
+}
+
+/* === Footer / Misc === */
+body footer {
+    text-align: center;
+    padding: 2rem;
+    color: #706f6c;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
