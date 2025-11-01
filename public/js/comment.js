@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 tbody.innerHTML = '<tr><td colspan="4">Aucun commentaire trouvé.</td></tr>';
                 return;
             }
-
+            commentList.innerHTML = '';
             events.forEach(event => {
                 const card = document.createElement('div');
                 card.className = 'comment-card';
@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const comment = form.elements.comment.value;
         const username = container.dataset.username;
+
+        console.log(username);
 
         try {
             const response = await fetch('/commentaires', {

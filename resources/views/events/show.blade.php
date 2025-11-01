@@ -22,16 +22,18 @@
         <div class="event-comment">
             <h2 class="comment-title">Espace Commentaire</h2>
 
-            <div id="commentaireFormContainer" 
-                data-username="{{ auth()->check() ? auth()->user()->name : 'Non' }}" 
-                data-idEvent="{{ $event->id ?? '' }}">
-                <form id="commentaireForm" class="comment-form">
-                    <input type="text" name="comment" placeholder="Écrire un commentaire..." required>
-                    <button type="submit">Publier</button>
-                </form>
-                <p id="result" class="comment-result"></p>
-            </div>
-
+            @if (auth()->check())
+                <div id="commentaireFormContainer" 
+                    data-username="{{ auth()->check() ? auth()->user()->name : 'Non' }}" 
+                    data-idEvent="{{ $event->id ?? '' }}">
+                    <form id="commentaireForm" class="comment-form">
+                        <input type="text" name="comment" placeholder="Écrire un commentaire..." required>
+                        <button type="submit">Publier</button>
+                    </form>
+                    <p id="result" class="comment-result"></p>
+                </div>
+            @endif
+            
             <div class="comment-list" id="commentList">
                 <!-- Les commentaires seront injectés ici -->
             </div>
